@@ -9,22 +9,41 @@
 
 
 $(function (event) {
+  //it shows that dom is ready to use
   console.log('DOM is ready');
 
+//main function that enables you to play the game.
 $ (function playGame() {
 
+//first player
     var player1 = play1();
+//Second player.
     var player2 = play2();
+//tracks the winner
     var win = winner();
     // var result = scores();
 
-    var = box = $(this);
-    if(box.hasClass('x') || box.hasClass('o')){
+    var box = $(this);
+    if(td.hasClass('x') || box.hasClass('o')){
+      //prevents user from clicking on the same box
       alert('This has been selected');
     }else {
-      if(player1 === 1){
+      //
+      if(player === 1){
         td.addClass('x');
+          if (winner('x')){
+            alert("Congrats" + player1 + "wins")
+          }else {
+            player = 2;
+          }
+        }
+          else {
+            if(player2 === 2){
+              td.addClass('o');
+                if (winner('o')){
+                  alert("Congrats" + player2 + "wins")
 
+          }
         player2 = 2;
       }else{
         td.addClass('o');
@@ -33,6 +52,7 @@ $ (function playGame() {
       }
     }
 
+}
 });
 
 
@@ -64,7 +84,8 @@ function winner(symbol) {
   else if ($('#6').hasClass(symbol) && $('#7').hasClass(symbol) && $('#8').hasClass(symbol))
   {
     return true;
-  } ($('#0').hasClass(symbol) && $('#3').hasClass(symbol) && $('#6').hasClass(symbol))
+  }
+  else if ($('#0').hasClass(symbol) && $('#3').hasClass(symbol) && $('#6').hasClass(symbol))
   {
     return true;
   }
