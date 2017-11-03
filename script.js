@@ -28,7 +28,7 @@ $ (function playGame() {
       //prevents user from clicking on the same box
       alert('This has been selected');
     }else {
-      //
+      //setting the winner and also display of the winners message
       if(player === 1){
         td.addClass('x');
           if (winner('x')){
@@ -38,6 +38,7 @@ $ (function playGame() {
           }
         }
           else {
+            //setting the winner and also display of the winners message
             if(player2 === 2){
               td.addClass('o');
                 if (winner('o')){
@@ -45,7 +46,8 @@ $ (function playGame() {
 
           }
         player2 = 2;
-      }else{
+      }
+      else{
         td.addClass('o');
 
         player1 = 1;
@@ -72,7 +74,7 @@ $(function play2() {
     $(this).html('o')
   })
 });
-
+//win possibilities
 function winner(symbol) {
   if($('#0').hasClass(symbol) && $('#1').hasClass(symbol) && $('#2').hasClass(symbol))
   {
@@ -99,7 +101,15 @@ function winner(symbol) {
   else false;
 }
 
+//how to reset the button
+$(document).ready(function()
+{
+    $('.reset').on('click', function()
+    {
+        $(".reset").trigger("reset");
+    });
 
+});
 
 //players turn
 
@@ -108,6 +118,8 @@ function winner(symbol) {
 playgame();
 
 });
+
+<button id="reset">Reset Board</button>
 
 // var array = [[0,1,2],[3,4,5],[6,7,8],[0,4,8],[0,3,6],[6,4,2],[1,4,7],[2,5,8]];
 // if (array === true) {
